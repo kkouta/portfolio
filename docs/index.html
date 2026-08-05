@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanno Kouta | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-heading: #ffffff;
+            --text-muted: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-green: #3fb950;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .profile-bio {
+            color: var(--text-muted);
+            max-width: 700px;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-heading);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 1.2rem;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            background: rgba(63, 185, 80, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* List Items (Awards & Research) */
+        .list-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .list-title {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        .list-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .list-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="profile-name">Kanno Kouta</h1>
+            <p class="profile-subtitle">Speech Processing & Agentic Systems Engineer</p>
+            <p class="profile-bio">
+                音声強調・話者照合・対語まやかし検出（Voice Anti-spoofing）等の音声処理技術の研究開発をはじめ、
+                次世代エージェンティック音声インターフェースの開発、フルスタックWeb開発・ハードウェアプロトタイピングを行っています。
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/kkouta" target="_blank">GitHub</a>
+                <a href="mailto:your-email@example.com">Contact</a>
+            </div>
+        </header>
+
+        <!-- Key Projects -->
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="card-tag">未踏アドバンスト事業</span>
+                    <h3 class="card-title">エージェンティック音声入力システム</h3>
+                    <p class="card-desc">
+                        キーボード入力を代替する高精度かつコンテキスト指向の次世代音声インターフェースの開発。
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Speech Processing</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Agentic AI</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Hackathon Project</span>
+                    <h3 class="card-title">VoiceOS Infrastructure</h3>
+                    <p class="card-desc">
+                        音声認識・音響モデル基盤を活用したリアルタイム処理アプリケーション。
+                    </p>
+                    <div class="tags">
+                        <span class="tag">VoiceOS</span>
+                        <span class="tag">Web API</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Hardware / Embedded</span>
+                    <h3 class="card-title">Raspberry Pi Pico Display System</h3>
+                    <p class="card-desc">
+                        マイコンを用いたカスタム表示システムおよび電子工作ワークベンチの開発。
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Raspberry Pi Pico</span>
+                        <span class="tag">C/C++</span>
+                        <span class="tag">Hardware</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research & Publications -->
+        <section>
+            <h2>Research & Achievements</h2>
+            <div class="list-item">
+                <div>
+                    <div class="list-title">Deepfake Voice & Voice Anti-spoofing Evaluation</div>
+                    <div class="list-sub">マルチタスク学習およびデータセットバリエーションによる音声偽造検出モデルの構築</div>
+                </div>
+                <div class="list-date">研究テーマ</div>
+            </div>
+
+            <div class="list-item">
+                <div>
+                    <div class="list-title">学生優秀発表賞</div>
+                    <div class="list-sub">日本音響学会 / 研究発表会</div>
+                </div>
+                <div class="list-date">Award</div>
+            </div>
+
+            <div class="list-item">
+                <div>
+                    <div class="list-title">多摩信用金庫賞</div>
+                    <div class="list-sub">TMU EntreBloom コンテスト</div>
+                </div>
+                <div class="list-date">Award</div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section>
+            <h2>Skills & Technologies</h2>
+            <div class="card">
+                <div style="margin-bottom: 0.8rem;">
+                    <strong style="color: var(--text-heading); font-size: 0.95rem;">Speech & AI / Machine Learning:</strong>
+                    <div class="tags" style="margin-top: 0.4rem;">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">AASIST</span>
+                        <span class="tag">RawNet2</span>
+                        <span class="tag">ECAPA-TDNN</span>
+                        <span class="tag">pyannote</span>
+                        <span class="tag">Speech Enhancement</span>
+                    </div>
+                </div>
+                <div style="margin-bottom: 0.8rem;">
+                    <strong style="color: var(--text-heading); font-size: 0.95rem;">Web & Software Engineering:</strong>
+                    <div class="tags" style="margin-top: 0.4rem;">
+                        <span class="tag">PHP</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Web Components</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+                <div>
+                    <strong style="color: var(--text-heading); font-size: 0.95rem;">Hardware & Others:</strong>
+                    <div class="tags" style="margin-top: 0.4rem;">
+                        <span class="tag">Raspberry Pi Pico</span>
+                        <span class="tag">Microcontroller Prototyping</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Kanno Kouta. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
